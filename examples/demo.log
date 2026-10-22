@@ -1,0 +1,14 @@
+2026-01-10 09:30:00 INFO demo request email=developer@example.test mobile=13800000000 peer=203.0.113.42
+2026-01-10 09:30:01 DEBUG demo password="example-only-value" access_token=example-only-token
+2026-01-10 09:30:02 ERROR demo request failed
+java.lang.IllegalStateException: Unable to import record
+	at example.importer.ImportService.run(ImportService.java:42)
+	Suppressed: java.io.IOException: Failed to close resource
+		at example.importer.Resource.close(Resource.java:18)
+Caused by: java.lang.NumberFormatException: For input string: " 123"
+	at java.base/java.lang.Long.parseLong(Long.java:711)
+	at example.importer.RecordParser.parse(RecordParser.java:27)
+	... 1 more
+2026-01-10 09:30:03 ERROR demo a separate later failure
+java.lang.NullPointerException: Missing result
+	at example.importer.ExportService.write(ExportService.java:56)
